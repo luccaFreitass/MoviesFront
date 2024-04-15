@@ -1,8 +1,7 @@
 body{
-    background: linear-gradient(#141515, #091c87);
-    background-color: #1d1e1e;
+    background-color: #141515;
     width: 100%;
-    height: 200vw;
+    
 }
 
 .header{
@@ -106,5 +105,10 @@ main {
   /* Efeito de LED quando o mouse passa sobre a imagem */
   .filmes img:hover {
     box-shadow: 0 0 50px#fff; /* Sombra branca */
+  }
+
+  .swal2-popup {
+    background-color: #363939; /* Cor de fundo desejada */
+    color: #fff;
   }
   
