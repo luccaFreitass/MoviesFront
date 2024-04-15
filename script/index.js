@@ -1,5 +1,6 @@
 import getDados from "./getDados.js";
 
+
 // Mapeia os elementos DOM que você deseja atualizar
 const elementos = {
     filmes: document.querySelector('[data-name="filmes"]')
@@ -51,3 +52,58 @@ function geraSeries() {
         });
 
 }
+
+
+// Função para salvar o filme
+function salvarFilme() {
+    // Obtém o valor do input onde o usuário digita o nome do filme
+    const filmeInput = document.getElementById('filmeInput').value;
+
+    // Verifica se o campo está vazio
+    if (!filmeInput.trim()) {
+        alert('Por favor, insira um nome de filme válido.');
+        return;
+    }
+
+    // Cria um objeto com os dados do filme
+    const filmeData = {
+        nome: filmeInput
+    };
+
+    // Faz a requisição POST para o backend
+    fetch('http://localhost:8080/filmes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(filmeData)
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao salvar filme.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Filme salvo:', data);
+            Swal.fire({
+                title: "Sucesso!",
+                text: "Filme salvo!",
+                icon: "success",
+                confirmButtonText: "OK",
+                customClass: {
+                    popup: 'swal2-large'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.reload(); // Recarrega a página se o usuário confirmar o alerta
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Erro ao salvar filme:', error);
+            alert('Erro ao salvar filme. Por favor, tente novamente.');
+        });
+}
+
+document.getElementById('salvarBtn').addEventListener('click', salvarFilme);

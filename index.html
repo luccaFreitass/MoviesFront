@@ -15,13 +15,14 @@
             </div>
             <div class="pesquisa">
                 <input type="text" id="filmeInput" class="form-control" placeholder="Pesquise seu filme aqui" minlength="1" required>
-                <button onclick="salvarFilme()">Salvar Filme</button>
+                <button id="salvarBtn" onclick="salvarFilme()">Salvar Filme</button>
             </div>
             <section class="filmes" data-name="filmes">
                 
             </section>
         </header>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./script/index.js" type="module"></script>
 </body>
 </html>
