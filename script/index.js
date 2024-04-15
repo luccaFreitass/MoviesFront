@@ -1,5 +1,6 @@
 import getDados from "./getDados.js";
 
+
 // Mapeia os elementos DOM que você deseja atualizar
 const elementos = {
     filmes: document.querySelector('[data-name="filmes"]')
@@ -77,21 +78,32 @@ function salvarFilme() {
         },
         body: JSON.stringify(filmeData)
     })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Erro ao salvar filme.');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Filme salvo:', data);
-        alert('Filme salvo com sucesso!');
-        location.reload(); // Recarrega a página após salvar com sucesso
-    })
-    .catch(error => {
-        console.error('Erro ao salvar filme:', error);
-        alert('Erro ao salvar filme. Por favor, tente novamente.');
-    });
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao salvar filme.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Filme salvo:', data);
+            Swal.fire({
+                title: "Sucesso!",
+                text: "Filme salvo!",
+                icon: "success",
+                confirmButtonText: "OK",
+                customClass: {
+                    popup: 'swal2-large'
+                }
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    location.reload(); // Recarrega a página se o usuário confirmar o alerta
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Erro ao salvar filme:', error);
+            alert('Erro ao salvar filme. Por favor, tente novamente.');
+        });
 }
 
 document.getElementById('salvarBtn').addEventListener('click', salvarFilme);
