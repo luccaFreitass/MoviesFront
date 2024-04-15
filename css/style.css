@@ -1,9 +1,10 @@
 body{
-    background: linear-gradient(#3e8fc1, #ffff);
-    background-color: #87CEFA;
+    background: linear-gradient(#141515, #091c87);
+    background-color: #1d1e1e;
     width: 100%;
-    height: 100vw;
+    height: 200vw;
 }
+
 .header{
     width: 100%;
     height: 10vw;
@@ -13,11 +14,26 @@ body{
     height: 10vw;
     text-align: center;
 }
-.title{
+
+main {
+    padding: 0 3em;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+
+.title {
     font-size: 40px;
     margin-top: 40px;
-    color: #ffff;
-}
+    color: #fff; /* Cor do texto branco */
+    text-shadow: 
+      0 0 20px #84c3eb,    /* Sombra azul suave */
+      0 0 40px #84c3eb,    /* Sombra azul média */
+      0 0 60px #84c3eb,    /* Sombra azul intensa */
+      0 0 80px #84c3eb,    /* Sombra azul bem intensa */
+      0 0 100px #84c3eb;   /* Sombra azul muito intensa */
+    
+    font-family: 'Roboto Slab', serif; /* Fonte Roboto Slab */
+  }
+
  
 .lista {
     list-style-type: none;
@@ -32,3 +48,63 @@ body{
     width: 300px;
     height: 444px;
 }
+
+.pesquisa {
+    text-align: center;
+    margin-bottom: 8vw;
+  }
+  
+  .form-control {
+    color: #fff;
+    background-color: transparent;
+    border-radius: 50px;
+    text-align: center;
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  }
+  
+  .form-control::placeholder {
+    color: #fff;
+    opacity: 0.7;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    color: #84c3eb;
+    border-color: #84c3eb;
+  }
+  
+  button {
+    color: #fff;
+    background-color: #84c3eb;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #63a7d4;
+  }
+  
+  button:active {
+    background-color: #4d90b8;
+  }
+  
+
+.filmes img {
+    border-radius: 50px;
+    box-shadow: 0 0 30px rgba(0, 235, 252, 0.5); /* Sombra branca */
+    transition: box-shadow 0.3s ease-in-out; /* Transição suave */
+    margin-bottom: 50px;
+  }
+  
+  /* Efeito de LED quando o mouse passa sobre a imagem */
+  .filmes img:hover {
+    box-shadow: 0 0 50px#fff; /* Sombra branca */
+  }
+  
