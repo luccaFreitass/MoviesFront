@@ -87,16 +87,18 @@ function salvarFilme() {
         .then(data => {
             console.log('Filme salvo:', data);
             Swal.fire({
-                title: "Sucesso!",
-                text: "Filme salvo!",
-                icon: "success",
+                title: "Sucesso",
+                text: "Filme salvo",
                 confirmButtonText: "OK",
                 customClass: {
                     popup: 'swal2-large'
+                },
+                customClass: {
+                    confirmButton: 'swal2-styled'
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
-                    location.reload(); // Recarrega a página se o usuário confirmar o alerta
+                    location.reload();
                 }
             });
         })
